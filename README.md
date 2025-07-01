@@ -47,7 +47,11 @@ A Laravel-based project that lists GitHub issues assigned to the authenticated u
     ```bash
     php artisan migrate --seed
     ```
-8. Run on local:
+9. Update `env` with your GitHub personal token:
+    ```bash
+    GITHUB_PERSONAL_TOKEN=your_github_personal_token
+    ```
+10. Run on local:
     ```bash
     composer run dev
     ```
