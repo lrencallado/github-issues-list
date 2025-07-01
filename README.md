@@ -43,11 +43,17 @@ A Laravel-based project that lists GitHub issues assigned to the authenticated u
     ```bash
     php artisan key:generate
     ```
-8. Run database migrations:
+8. Run database migrations and seeder:
     ```bash
-    php artisan migrate
+    php artisan migrate --seed
     ```
 8. Run on local:
     ```bash
     composer run dev
     ```
+
+---
+
+## Test User
+Email: test@example.com
+Password: password
