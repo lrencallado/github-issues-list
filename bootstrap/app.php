@@ -2,10 +2,19 @@
 
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
+use Dotenv\Dotenv;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets;
+
+// Load .env.local if exising instead of default .env
+$basePath = dirname(__DIR__);
+$envFile = '.env.local';
+
+if (file_exists($basePath . '/' . $envFile)) {
+    Dotenv::createImmutable($basePath, $envFile)->load();
+}
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -24,4 +33,5 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
-    })->create();
+    })
+    ->create();
