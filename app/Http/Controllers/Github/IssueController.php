@@ -23,9 +23,19 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return Inertia::render('issues/Index', [
-            'issues' => ListIssuesResource::collection($this->githubService->listIssues())->resolve()
-        ]);
+        try {
+            return Inertia::render('issues/Index', [
+                'issues' => ListIssuesResource::collection($this->githubService->listIssues())->resolve()
+            ]);
+        } catch (\Throwable $th) {
+            Log::error('IssueController@index error', [
+                'message' => $th->getMessage(),
+            ]);
+            return Inertia::render('issues/Index', [
+                'errors' => ['message' => 'Unable to retrieve the list of issues from GitHub. Please try again later.']
+
+            ]);
+        }
     }
 
     /**
