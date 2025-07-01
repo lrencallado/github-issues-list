@@ -55,5 +55,7 @@ A Laravel-based project that lists GitHub issues assigned to the authenticated u
 ---
 
 ## Test User
+
 Email: test@example.com
+
 Password: password
