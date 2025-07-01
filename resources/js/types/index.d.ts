@@ -36,3 +36,7 @@ export interface User {
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;
+
+export interface Errors {
+    message?: string
+}

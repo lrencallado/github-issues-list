@@ -123,4 +123,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'github_personal_token' => env('GITHUB_PERSONAL_TOKEN'),
+    'github_base_api_url' => env('GITHUB_BASE_API_URL'),
+    'github_api_version' => env('GITHUB_API_VERSION'),
 ];
